@@ -1,11 +1,11 @@
 Hospital System 
- a backend system for a hospital that handles user signups, patient–doctor assignments, doctor note submissions, and dynamic scheduling of actionable steps based on live LLM processing. The system must secure sensitive data and use a live LLM to extract actionable steps—divided into a checklist (immediate tasks) and a plan (scheduled actions). New note submissions should cancel any existing actionable steps and create new ones.
+a backend system for a hospital that handles user signups, patient–doctor assignments, doctor note submissions, and dynamic scheduling of actionable steps based on live LLM processing. The system must secure sensitive data and use a live LLM to extract actionable steps—divided into a checklist (immediate tasks) and a plan (scheduled actions). New note submissions should cancel any existing actionable steps and create new ones.
 
 
  API Documentation: https://app.getpostman.com/join-team?invite_code=5f76b7a72d378cd6785a6f96b10d74ff0f723de7c02765e63c4d4e5b7a229511&target_code=e9d3124dcf42488feda998b85e83f1ca
 
  
- live url: https://hospital-system-llb9.onrend
+ Live url: https://hospital-system-llb9.onrend
 
 full system design documentation: https://docs.google.com/document/d/1PJCQ7PUN7u6enrSFsf8bXGY9RJbNmB2vrRHqckXpWGM/edit?usp=sharing
  
@@ -28,3 +28,11 @@ When reminders are missed by the user, a reference is made to the Plan model. Ea
    > endDateTIme
    > minutesBetweenReminders
 From the plan model, we can determine the end date and time for the last scheduled reminder. So if a user misses a reminder, and the time past is greater than the minutes between reminder, we add the minutes between reminder to the last date and time for the reminders and schedule it . This way, missed reminders will be repeated without breaking the plan irrespective of whatever it is
+
+
+**Environment Variables**
+
+DB_URI= mongoDB uri connection string 
+UNIQUE_PRIVATE_KEY=Hashing key for password and other critical info
+GOOGLE_API_KEY=Gemini Key for  AI functionalities activation
+PORT= server port
